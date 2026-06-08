@@ -6,7 +6,7 @@ from sklearn.metrics import (
     accuracy_score
 )
 df = pd.read_csv(
-    r"C:\Users\HOCINE\Downloads\DatasetTelecome.csv",
+    "DatasetTelecome.csv",
     
 )
 df.dropna(inplace=True)
@@ -225,6 +225,7 @@ evaluate_model(
 """
 from sklearn.ensemble import RandomForestClassifier
 
+"""""
 rf = RandomForestClassifier(
     n_estimators=200,
     max_depth=10,
@@ -234,6 +235,22 @@ rf = RandomForestClassifier(
 
 evaluate_model(
     rf,
+    X_train,
+    X_test,
+    y_train,
+    y_test
+)
+"""
+from sklearn.svm import SVC
+
+svm = SVC(
+    kernel="rbf",
+    class_weight="balanced",
+    random_state=42
+)
+
+evaluate_model(
+    svm,
     X_train,
     X_test,
     y_train,
